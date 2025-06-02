@@ -35,26 +35,11 @@ router.get('/api/availability', async (req, res) => {
 
   const page = parseInt(req.query.page as string) || 1
   const pageSize = parseInt(req.query.limit as string) || 30
-  const totalItems = resultEntries.length
-  const totalPages = Math.ceil(totalItems / pageSize)
   const startIndex = (page - 1) * pageSize
   const endIndex = startIndex + pageSize
   const paginatedData = resultEntries.slice(startIndex, endIndex)
 
-  const resultObject = Object.fromEntries(paginatedData)
-
-  res.json({
-    status: 'ok',
-    result: resultObject,
-    pagination: {
-      page,
-      pageSize,
-      totalPages,
-      totalItems,
-      hasNextPage: page < totalPages,
-      hasPrevPage: page > 1,
-    },
-  })
+  res.json(Object.fromEntries(paginatedData))
 })
 
 router.get('/api/check-price', async (req, res) => {
