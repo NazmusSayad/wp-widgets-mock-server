@@ -44,3 +44,65 @@ export async function getExploreData() {
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return generateCardData({ count: 1000 })
 }
+
+export async function getExploreMetaData() {
+  await new Promise((resolve) => setTimeout(resolve, 1000))
+  return {
+    placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'],
+    amenities: [
+      'Pool',
+      'Wi-Fi',
+      'Kitchen',
+      'Hot Tub',
+      'Fireplace',
+      'Air Conditioning',
+      'Pets Allowed',
+      'Family Friendly',
+      'Parking',
+      'BBQ Grill',
+      'Washer',
+      'Dryer',
+      'Gym',
+      'Outdoor Kitchen',
+      'Garden',
+      'Kitchen Island',
+      'Pool Table',
+      'Allows Children',
+      'Outdoor Dining',
+      'Smart TV',
+      'Coffee Maker',
+      'Heating',
+      'Essentials',
+      'Hangers',
+      'Iron',
+      'Hair Dryer',
+      'Shampoo',
+      'Towels',
+      'Toiletries',
+      'Microwave',
+      'Refrigerator',
+      'Oven',
+      'Stove',
+      'Dishwasher',
+      'Cooking Basics',
+      'Dishes and Silverware',
+      'Free Parking on Premises',
+      'Free Street Parking',
+      'Long Term Stays Allowed',
+      'Self Check-In',
+      'Lockbox',
+      'Private Entrance',
+      'Hot Water',
+    ],
+    location: {
+      cities: [...new Set(locations)],
+      countries: [
+        'Canada',
+        'Mexico',
+        'France',
+        'United States',
+        'United Kingdom',
+      ],
+    },
+  }
+}
