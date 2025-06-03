@@ -1,10 +1,20 @@
 import { Router } from 'express'
 import { getAvailabilityData } from './controller/availability.controller'
-import { getExploreData } from './controller/explore.controller'
+import {
+  getExploreData,
+  getExploreMetaData,
+} from './controller/explore.controller'
 import { randomInRange } from './utils'
 import { getPrices } from './controller/prices.controller'
 
 const router = Router()
+
+router.get('/api/explore-meta', async (req, res) => {
+  res.json({
+    status: 'ok',
+    result: await getExploreMetaData(),
+  })
+})
 
 router.get('/api/explore', async (req, res) => {
   const result = await getExploreData()
