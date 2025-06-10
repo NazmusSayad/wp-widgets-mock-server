@@ -100,13 +100,52 @@ export async function getExploreMetaData() {
       'Hot Water',
     ],
     location: {
-      cities: [...new Set(locations)].map((city) => ({
-        id: city.toLowerCase().replace(/\s+/g, '-'),
-        name: city,
-        image: `https://picsum.photos/seed/city-${city
-          .toLowerCase()
-          .replace(/\s+/g, '-')}/300/200`,
-      })),
+      cities: [...new Set(locations)].map((city, index) => {
+        const generateCityDescription = (cityName: string, index: number) => {
+          const descriptors = [
+            'charming',
+            'picturesque',
+            'stunning',
+            'beautiful',
+            'scenic',
+            'peaceful',
+            'vibrant',
+          ]
+          const settings = [
+            'mountain retreat',
+            'lakeside haven',
+            'forest sanctuary',
+            'countryside escape',
+            'nature paradise',
+            'outdoor adventure hub',
+            'tranquil getaway',
+          ]
+          const activities = [
+            'hiking trails',
+            'fishing spots',
+            'scenic views',
+            'outdoor adventures',
+            'wildlife watching',
+            'nature walks',
+            'peaceful relaxation',
+          ]
+
+          const descriptor = descriptors[index % descriptors.length]
+          const setting = settings[index % settings.length]
+          const activity = activities[(index + 1) % activities.length]
+
+          return `A ${descriptor} ${setting} offering excellent ${activity} and unforgettable experiences for visitors seeking the perfect retreat.`
+        }
+
+        return {
+          id: city.toLowerCase().replace(/\s+/g, '-'),
+          name: city,
+          description: generateCityDescription(city, index),
+          image: `https://picsum.photos/seed/city-${city
+            .toLowerCase()
+            .replace(/\s+/g, '-')}/300/200`,
+        }
+      }),
 
       countries: [
         'Canada',
