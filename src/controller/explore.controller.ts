@@ -100,14 +100,27 @@ export async function getExploreMetaData() {
       'Hot Water',
     ],
     location: {
-      cities: [...new Set(locations)],
+      cities: [...new Set(locations)].map((city) => ({
+        id: city.toLowerCase().replace(/\s+/g, '-'),
+        name: city,
+        image: `https://picsum.photos/seed/city-${city
+          .toLowerCase()
+          .replace(/\s+/g, '-')}/300/200`,
+      })),
+
       countries: [
         'Canada',
         'Mexico',
         'France',
         'United States',
         'United Kingdom',
-      ],
+      ].map((country) => ({
+        id: country.toLowerCase().replace(/\s+/g, '-'),
+        name: country,
+        image: `https://picsum.photos/seed/country-${country
+          .toLowerCase()
+          .replace(/\s+/g, '-')}/300/200`,
+      })),
     },
   }
 }
