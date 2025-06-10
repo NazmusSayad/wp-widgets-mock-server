@@ -1,6 +1,7 @@
 import { randomInRange } from '@/utils'
 import { locations, tags, titles } from '../constants'
 import { randomUUID } from 'node:crypto'
+
 function generateCardData({ count = 300 }: { count?: number }) {
   return Array.from({ length: count }, (_, i) => {
     const guests = 10 + Math.floor(Math.random() * 10)
@@ -15,6 +16,8 @@ function generateCardData({ count = 300 }: { count?: number }) {
     )
 
     return {
+      id: randomUUID(),
+
       title,
       price,
       images,
