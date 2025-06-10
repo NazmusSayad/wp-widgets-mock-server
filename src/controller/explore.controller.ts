@@ -1,3 +1,4 @@
+import { randomInRange } from '@/utils'
 import { locations, tags, titles } from '../constants'
 
 function generateCardData({ count = 300 }: { count?: number }) {
@@ -48,6 +49,10 @@ export async function getExploreData() {
 export async function getExploreMetaData() {
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return {
+    priceRange: {
+      min: randomInRange(50, 1000),
+      max: randomInRange(1000, 10000),
+    },
     placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'],
     amenities: [
       'Pool',
