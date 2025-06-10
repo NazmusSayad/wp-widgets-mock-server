@@ -49,11 +49,11 @@ export async function getExploreData() {
 export async function getExploreMetaData() {
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return {
+    placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'],
     priceRange: {
       min: randomInRange(50, 1000),
       max: randomInRange(1000, 10000),
     },
-    placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'],
     amenities: [
       'Pool',
       'Wi-Fi',
