@@ -35,6 +35,13 @@ function generateCardData({ count = 300 }: { count?: number }) {
         lng: -112.15 + Math.random() * 0.3,
       },
 
+      _location: {
+        title: location,
+        image: images[0],
+        lat: 33.3 + Math.random() * 0.3,
+        lng: -112.15 + Math.random() * 0.3,
+      },
+
       features: {
         guests,
         beds,
