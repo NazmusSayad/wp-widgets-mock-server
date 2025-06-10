@@ -1,6 +1,6 @@
 import { randomInRange } from '@/utils'
 import { locations, tags, titles } from '../constants'
-
+import { randomUUID } from 'node:crypto'
 function generateCardData({ count = 300 }: { count?: number }) {
   return Array.from({ length: count }, (_, i) => {
     const guests = 10 + Math.floor(Math.random() * 10)
@@ -17,8 +17,8 @@ function generateCardData({ count = 300 }: { count?: number }) {
     return {
       title,
       price,
-      altText: title,
       images,
+      altText: title,
       tag: tags[Math.floor(Math.random() * tags.length)],
       location,
 
@@ -156,7 +156,7 @@ export async function getExploreMetaData() {
         }
 
         return {
-          id: city.toLowerCase().replace(/\s+/g, '-'),
+          id: randomUUID(),
           name: city,
           title: generateCityTitle(index),
           description: generateCityDescription(city, index),
@@ -173,7 +173,7 @@ export async function getExploreMetaData() {
         'United States',
         'United Kingdom',
       ].map((country) => ({
-        id: country.toLowerCase().replace(/\s+/g, '-'),
+        id: randomUUID(),
         name: country,
         image: `https://picsum.photos/seed/country-${country
           .toLowerCase()
