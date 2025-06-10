@@ -137,9 +137,28 @@ export async function getExploreMetaData() {
           return `A ${descriptor} ${setting} offering excellent ${activity} and unforgettable experiences for visitors seeking the perfect retreat.`
         }
 
+        function generateCityTitle(index: number) {
+          const titles = [
+            'Hidden Mountain Paradise Retreat',
+            'Ultimate Nature Adventure Hub',
+            'Scenic Wilderness Escape Town',
+            'Peaceful Forest Haven Gateway',
+            'Mountain Base Adventure Camp',
+            'Wild Outdoor Explorer Paradise',
+            'Forest Gateway Nature Sanctuary',
+            'Creek Side Adventure Village',
+            'Pine Valley Mountain Retreat',
+            'Lake View Scenic Hideaway',
+            'Sky Ridge Mountain Resort',
+            'River Point Nature Lodge',
+          ]
+          return titles[index % titles.length]
+        }
+
         return {
           id: city.toLowerCase().replace(/\s+/g, '-'),
           name: city,
+          title: generateCityTitle(index),
           description: generateCityDescription(city, index),
           image: `https://picsum.photos/seed/city-${city
             .toLowerCase()
