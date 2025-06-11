@@ -29,23 +29,25 @@ router.get('/api/explore', async (req, res) => {
   console.log(req.query)
   /*
   {
-    pets: 'true',
+    pets: 'false',
     adults: '1',
     children: '0',
-    sort_by: 'By Name (A-Z)',
-    price_range_to: '12180',
-    price_range_from: '150',
-    search_query: '',
-    place_cabin: 'false',
-    place_condo: 'false',
-    amenity_firePit: 'false',
-    amenity_jacuzzi: 'false',
-    amenity_poolTable: 'false',
-    amenity_familyFriendly: 'false',
-    amenity_kitchenIsland: 'false',
-    amenity_garden: 'false',
-    amenity_allowsChildren: 'false',
-    amenity_outdoorKitchen: 'false'
+    sort_by: 'By Number of Bedrooms (High to Low)',
+    date_range_to: '2025-07-09T18:00:00.000Z',
+    date_range_from: '2025-06-10T18:00:00.000Z',
+    search_query: 'query',
+    price_range_to: '4183',
+    price_range_from: '436',
+    'place_type[]': [ 'Condo', 'House', 'Apartment' ],
+    'amenity[]': [
+      'Kitchen',
+      'Pool',
+      'Fireplace',
+      'Wi-Fi',
+      'Hot Tub',
+      'Air Conditioning',
+      'Family Friendly'
+    ]
   }
   */
 
