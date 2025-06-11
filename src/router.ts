@@ -35,10 +35,11 @@ router.get('/api/explore', async (req, res) => {
     sort_by: 'By Number of Bedrooms (High to Low)',
     date_range_to: '2025-07-09T18:00:00.000Z',
     date_range_from: '2025-06-10T18:00:00.000Z',
+    location: 'United Kingdom',
     search_query: 'query',
     price_range_to: '4183',
     price_range_from: '436',
-    'place_type[]': [ 'Condo', 'House', 'Apartment' ],
+    'place_type[]': ['Condo', 'House', 'Apartment'],
     'amenity[]': [
       'Kitchen',
       'Pool',
