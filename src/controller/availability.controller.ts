@@ -1,6 +1,4 @@
 export async function getAvailabilityData() {
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
   return {
     '2025-05-01': {
       price: 450,

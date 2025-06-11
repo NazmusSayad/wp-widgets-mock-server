@@ -9,6 +9,11 @@ import { getPrices } from './controller/prices.controller'
 
 const router = Router()
 
+router.use(async (_, __, next) => {
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+  next()
+})
+
 router.get('/api/explore-meta', async (req, res) => {
   res.json({
     status: 'ok',

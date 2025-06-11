@@ -44,12 +44,10 @@ function generateCardData({ count = 300 }: { count?: number }) {
 }
 
 export async function getExploreData() {
-  await new Promise((resolve) => setTimeout(resolve, 1000))
   return generateCardData({ count: 1000 })
 }
 
 export async function getExploreMetaData() {
-  await new Promise((resolve) => setTimeout(resolve, 1000))
   return {
     placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'],
     priceRange: {
