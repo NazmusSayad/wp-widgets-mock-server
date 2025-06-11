@@ -5,7 +5,7 @@ import {
   getExploreMetaData,
 } from './controller/explore.controller'
 import { randomInRange } from './utils'
-import { getPrices } from './controller/prices.controller'
+import { checkCoupon, getPrices } from './controller/prices.controller'
 
 const router = Router()
 
@@ -69,6 +69,22 @@ router.get('/api/explore', async (req, res) => {
       hasPrevPage: page > 1,
     },
   })
+})
+
+router.get('/api/check-coupon', async (req, res) => {
+  const result = checkCoupon(String(req.query.coupon))
+
+  if (result.valid) {
+    res.json({
+      status: 'ok',
+      result,
+    })
+  } else {
+    res.status(400).json({
+      status: 'error',
+      error: result.message,
+    })
+  }
 })
 
 router.get('/api/check-price', async (req, res) => {
