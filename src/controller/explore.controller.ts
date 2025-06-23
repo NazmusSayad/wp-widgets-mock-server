@@ -49,11 +49,15 @@ export async function getExploreData() {
 
 export async function getExploreMetaData() {
   return {
-    placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'],
     priceRange: {
       min: randomInRange(50, 1000),
       max: randomInRange(1000, 10000),
     },
+    placeTypes: ['Cabin', 'Condo', 'House', 'Apartment'].map((placeType) => ({
+      id: randomUUID(),
+      name: placeType,
+    })),
+
     amenities: [
       'Pool',
       'Wi-Fi',
@@ -98,7 +102,11 @@ export async function getExploreMetaData() {
       'Lockbox',
       'Private Entrance',
       'Hot Water',
-    ],
+    ].map((amenity) => ({
+      id: randomUUID(),
+      name: amenity,
+    })),
+
     location: {
       cities: [...new Set(locations)].map((city, index) => {
         const generateCityDescription = (cityName: string, index: number) => {
